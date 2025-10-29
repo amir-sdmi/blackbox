@@ -8,9 +8,10 @@ export default function Contact() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({
     threshold: 0.2,
   });
-  const { ref: formRef, isVisible: formVisible } = useScrollAnimation({
-    threshold: 0.1,
-  });
+  const { ref: formRef, isVisible: formVisible } =
+    useScrollAnimation<HTMLFormElement>({
+      threshold: 0.1,
+    });
 
   return (
     <section
@@ -72,4 +73,3 @@ export default function Contact() {
     </section>
   );
 }
-

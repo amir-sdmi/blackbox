@@ -2,12 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function useScrollAnimation(options?: {
-  threshold?: number;
-  rootMargin?: string;
-}) {
+export function useScrollAnimation<
+  T extends HTMLElement = HTMLDivElement
+>(options?: { threshold?: number; rootMargin?: string }) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,4 +37,3 @@ export function useScrollAnimation(options?: {
 
   return { ref, isVisible };
 }
-
